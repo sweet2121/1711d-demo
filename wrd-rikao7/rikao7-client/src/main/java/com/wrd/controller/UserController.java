@@ -26,6 +26,13 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    /**
+     * 列表查询
+     * @param user
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     @GetMapping("getPageInfo")
     public PageInfo<User> getPageInfo(User user, @RequestParam(defaultValue = "1") Integer pageNum,
                                       @RequestParam(defaultValue = "3") Integer pageSize){

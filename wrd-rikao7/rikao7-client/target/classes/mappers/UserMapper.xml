@@ -5,4 +5,5 @@
     <select id="selectList" resultType="user">
         select * from t_user
     </select>
+
 </mapper>
