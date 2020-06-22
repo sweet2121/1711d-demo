@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wrd.mapper.HourseMapper">
+
+    <select id="selectList" resultType="hourseVo">
+        select * from t_hourse
+        <where>
+            <if test="hourseVo.county!=null and hourseVo.county!=0">
+                and county = #{hourseVo.county}
+            </if>
+            <if test="hourseVo.room!=null and hourseVo.room!=0 and hourseVo.room!=5  ">
+                and room = #{hourseVo.room}
+            </if>
+            <if test="hourseVo.maxRoom==5" >
+                and room  &gt;= #{hourseVo.maxRoom}
+            </if>
+
+            <if test="hourseVo.rent1!=null and hourseVo.rent1!=0 " >
+                and rent &gt;= #{hourseVo.rent1}
+            </if>
+            <if test="hourseVo.rent2!=null and hourseVo.rent2!=0 " >
+                and rent  &lt;= #{hourseVo.rent2}
+            </if>
+
+        </where>
+    </select>
+</mapper>
